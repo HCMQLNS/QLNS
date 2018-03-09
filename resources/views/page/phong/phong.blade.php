@@ -19,37 +19,26 @@
                         </div>
                       @endif
                         <div class="card-header">
-                            <strong class="card-title">DANH SÁCH NHÂN VIÊN</strong>
+                            <strong class="card-title">DANH SÁCH PHÒNG</strong>
                         </div>
                         <div class="card-body">
                   <table id="mydata" class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th>Mã NV</th>
-                        <th>Họ tên</th>
-                        <th>Giới tính</th>
-                        <th>email</th>
-                        <th>Chức vụ</th>
-                        <th>Phòng ban</th>
+                        <th>Mã phòng</th>
+                        <th>Tên phòng</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
-                        <th>Thêm user</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach($nhanVien as $nv)
+                      @foreach($phong as $p)
                       <tr>
-                        <td><a href="nhanvien/profile/{{$nv->id}}">{{$nv->id}}</a></td>
-                        <td>{{$nv->hoten}}</td>
-                        <td>
-                          @if($nv->gioitinh == 0) Nữ @else Nam @endif 
-                        </td>
-                        <td>{{$nv->email}}</td>
-                        <td>{{$nv->chucvu->tencv}}</td>
-                        <td>{{$nv->phong->tenphong}}</td>
-                        <td><a href="nhanvien/suanhanvien/{{$nv->id}}"><i class="fa fa-edit"></i>  Sửa</a></td>
-                        <td><a href="nhanvien/xoanhanvien/{{$nv->id}}"><i class="fa fa-times-circle"></i>  Xóa</a></td>
-                        <td><a href="user/themuser/{{$nv->id}}"><i class="fa fa-plus-square-o"></i>   Thêm User</a></td>
+                        <td>{{$p->id}}</td>
+                        <td>{{$p->tenphong}}</td>
+                        
+                        <td><a href="phong/suaphong/{{$p->id}}"><i class="fa fa-edit"></i>  Sửa</a></td>
+                        <td><a href="phong/xoaphong/{{$p->id}}"><i class="fa fa-times-circle"></i>  Xóa</a></td>
                       </tr>
                       @endforeach
                     </tbody>

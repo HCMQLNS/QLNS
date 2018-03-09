@@ -44,6 +44,88 @@ Route::group(['prefix'=>'nhanvien'],function(){
 		'uses'=>'NhanVienController@getXoaNhanVien'
 	]);
 });
+
+Route::group(['prefix'=>'phong'],function(){
+	Route::get('danhsach',[
+	'as'=>'phong',
+	'uses'=>'PhongController@getPhong'
+	]);
+	Route::get('themphong',[
+		'as'=>'themnhanvien',
+		'uses'=>'PhongController@getThemPhong'
+	]);
+	Route::post('themphong',[
+		'as'=>'themphong',
+		'uses'=>'PhongController@postThemPhong'
+	]);
+	Route::get('suaphong/{id}',[
+		'as'=>'suaphong',
+		'uses'=>'PhongController@getSuaPhong'
+	]);
+	Route::post('suaphong/{id}',[
+		'as'=>'suaphong',
+		'uses'=>'PhongController@postSuaPhong'
+	]);
+	Route::get('xoaphong/{id}',[
+		'as'=>'xoaphong',
+		'uses'=>'PhongController@getXoaPhong'
+	]);
+});
+
+Route::group(['prefix'=>'ca'],function(){
+	Route::get('danhsach',[
+	'as'=>'ca',
+	'uses'=>'CaController@getCa'
+	]);
+	Route::get('themca',[
+		'as'=>'themca',
+		'uses'=>'CaController@getThemca'
+	]);
+	Route::post('themca',[
+		'as'=>'themca',
+		'uses'=>'CaController@postThemCa'
+	]);
+	Route::get('suaca/{id}',[
+		'as'=>'suaca',
+		'uses'=>'CaController@getSuaCa'
+	]);
+	Route::post('suaca/{id}',[
+		'as'=>'suaca',
+		'uses'=>'CaController@postSuaCa'
+	]);
+	Route::get('xoaca/{id}',[
+		'as'=>'xoaca',
+		'uses'=>'CaController@getXoaCa'
+	]);
+});
+
+Route::group(['prefix'=>'user'],function(){
+	Route::get('danhsach',[
+	'as'=>'ca',
+	'uses'=>'CaController@getCa'
+	]);
+	Route::get('themuser/{id}',[
+		'as'=>'themuser',
+		'uses'=>'UserController@getThemUser'
+	]);
+	Route::post('themuser/{id}',[
+		'as'=>'themca',
+		'uses'=>'UserController@postThemUser'
+	]);
+	Route::get('suaca/{id}',[
+		'as'=>'suaca',
+		'uses'=>'CaController@getSuaCa'
+	]);
+	Route::post('suaca/{id}',[
+		'as'=>'suaca',
+		'uses'=>'CaController@postSuaCa'
+	]);
+	Route::get('xoaca/{id}',[
+		'as'=>'xoaca',
+		'uses'=>'CaController@getXoaCa'
+	]);
+});
+
 Route::get('index',[
 	'as'=>'trang-chu',
 	'uses'=>'PageController@getIndex'

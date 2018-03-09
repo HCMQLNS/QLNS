@@ -147,7 +147,7 @@ class NhanVienController extends Controller
         $nhanvien->idcv = $request->selectChucVu;
         $nhanvien->idphong = $request->selectPhong;
         $nhanvien->save(); 
-        return redirect('nhanvien/themnhanvien')->with('thongbao','Thêm thành công');
+        return redirect('nhanvien/danhsach')->with('thongbao','Thêm thành công');
 
     }
     public function getSuaNhanVien($id){
@@ -279,7 +279,7 @@ class NhanVienController extends Controller
         $nhanvien->idcv = $request->selectChucVu;
         $nhanvien->idphong = $request->selectPhong;
         $nhanvien->save(); 
-        return redirect('nhanvien/themnhanvien')->with('thongbao','Sửa thành công');
+        return redirect('nhanvien/danhsach')->with('thongbao','Sửa thành công');
     }
 
      public function getXoaNhanVien($id){ 
