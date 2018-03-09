@@ -54,3 +54,17 @@ Route::get('dangnhap',[
 	'uses'=>'PageController@getDangNhap'
 ]);
 Route::post('dangnhap','AuthController@login')->name('login');
+// Điểm danh
+Route::get('diemdanh',[
+	'as'=>'diemdanh',
+	'uses'=>'PageController@getDiemDanh'
+]);
+Route::get('NS_diemdanh',[
+	'as'=>'NS_diemdanh',
+	'uses'=>'PageController@getNS_DiemDanh'
+]);
+//thống kê
+Route::get('thongke',[
+	'as'=>'thongke',
+	'uses'=>'PageController@getThongKe'
+]);

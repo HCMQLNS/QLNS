@@ -58,15 +58,12 @@
    
     <script src="source/assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="source/assets/js/plugins.js"></script>
+    <script src="source/assets/js/popper.min.js"></script>
+	<script src="source/assets/js/plugins.js"></script>
     <script src="source/assets/js/main.js"></script>
     
     
     
-    
-	
-   
-
 
     <script src="source/assets/js/lib/data-table/datatables.min.js"></script>
     <script src="source/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
@@ -79,9 +76,14 @@
     <script src="source/assets/js/lib/vector-map/jquery.vmap.min.js"></script>
     <script src="source/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
     <script src="source/assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
+	
+				<!--  Chart js -->
+    <script src="source/assets/js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="source/assets/js/lib/chart-js/chartjs-init.js"></script>			
+
     <script>
     //js tim kiem, so trang , table
-   
+    
         $('#mydata').dataTable();  
   
    		 
