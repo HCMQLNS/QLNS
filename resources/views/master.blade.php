@@ -63,6 +63,7 @@
     <script src="source/assets/js/main.js"></script>
     
     
+                
     
 
     <script src="source/assets/js/lib/data-table/datatables.min.js"></script>
@@ -76,11 +77,10 @@
     <script src="source/assets/js/lib/vector-map/jquery.vmap.min.js"></script>
     <script src="source/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
     <script src="source/assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
-	
-				<!--  Chart js -->
+				
+<!--  Chart js -->
     <script src="source/assets/js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="source/assets/js/lib/chart-js/chartjs-init.js"></script>			
-
+    <script src="source/assets/js/lib/chart-js/chartjs-init.js"></script>
     <script>
     //js tim kiem, so trang , table
     
@@ -106,6 +106,9 @@
             } );
         } )( jQuery );
     </script>
+
+    <!-- diemdanh-->
+    @include('diemdanh')
 
 </body>
 </html>
