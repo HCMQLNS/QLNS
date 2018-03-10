@@ -60,4 +60,5 @@
      
 </div>
 
+@include('diemdanh')	<!--Css and js-->
 @endsection

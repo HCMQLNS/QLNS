@@ -10,17 +10,9 @@
 			<div class="card-body">
 				<select data-placeholder="Choose a Country..." class="standardSelect" tabindex="1">
 					<option value=""></option>
-					<option value="United States">United States</option>
-					<option value="United Kingdom">United Kingdom</option>
-					<option value="Afghanistan">Afghanistan</option>
-					<option value="Aland Islands">Aland Islands</option>
-					<option value="Albania">Albania</option>
-					<option value="Algeria">Algeria</option>
-					<option value="American Samoa">American Samoa</option>
-					<option value="Andorra">Andorra</option>
-					<option value="Angola">Angola</option>
-					<option value="Anguilla">Anguilla</option>
-					<option value="Antarctica">Antarctica</option>
+					@foreach($phg as $p)		<!-- -->
+						<option value="{{$p->tenphong}}">{{$p->tenphong}}</option>
+					@endforeach					
 				</select>
 			</div>
 		</div>
@@ -32,62 +24,44 @@
 				            <div class="card-header">
 				                <strong class="card-title">Data Table</strong>
 				            </div>
-				            <div class="card-body">
-						      <table id="mydata" class="table table-striped table-bordered">
-						        <thead>
-						          <tr>
-						            <th>Name</th>
-						            <th>Ca Sáng</th>
-						            <th>Ca Chiều</th>
-						            <th>Trễ</th>
-						          </tr>
-						        </thead>
-						        <tbody>
-						          <tr>
-						            <td>
-						            	<?php echo "Nguyễn Văn A"; ?>
-						            </td>
-						            <td>
-						            	<input type="checkbox" name="A">
-						            </td>
-						            <td>
-						            	<input type="checkbox" name="B">
-						            </td>
-						            <td>
-						            	<input type="checkbox" name="M">
-						            </td>
-						          </tr>
-						          <tr>
-						            <td>
-						            	<?php echo "Nguyễn Văn B"; ?>
-						            </td>
-						            <td>
-						            	<input type="checkbox" name="A">
-						            </td>
-						            <td>
-						            	<input type="checkbox" name="B">
-						            </td>
-						            <td>
-						            	<input type="checkbox" name="M">
-						            </td>
-						          </tr>
-						          <tr>
-						            <td>
-						            	<?php echo "Nguyễn Văn C"; ?>
-						            </td>
-						            <td>
-						            	<input type="checkbox" name="A">
-						            </td>
-						            <td>
-						            	<input type="checkbox" name="B">
-						            </td>
-						            <td>
-						            	<input type="checkbox" name="M">
-						            </td>
-						          </tr>
-						        </tbody>
-						      </table>
-				            </div>
+							
+							@foreach($ca as $c)
+								@if((date('H:i') > $c->tgbd ) && (date('H:i') < $c->tgkt))
+									<div class="card-body">
+									<form action="" method="post"> 
+										<table id="mydata" class="table table-striped table-bordered">
+											<thead>
+											  <tr>
+												<th>Name</th>										
+												<th>Điểm danh</th>	
+												<th></th>											
+											  </tr>
+											</thead>
+											<tbody>
+												@foreach($ns as $nv)
+												<tr>											
+													<td>
+														{{$nv->hoten}}
+													</td>												
+													<td>
+													@foreach($ca as $c)
+														@if((date('H:i') > $c->tgbd ) && (date('H:i') < $c->tgkt))
+															<input type="checkbox" name="{{$c->tenca}}"> Ca {{$c->tenca}}
+														@endif
+													@endforeach
+													</td>
+													<td></td>
+												</tr>
+												@endforeach
+											</tbody>
+										</table>
+										<button type="submit" class="btn btn-primary btn-sm" style="margin-left:45%; margin-top:5%; width: 150px">
+											<i class="fa fa-dot-circle-o"></i> Lưu
+										</button>
+									</form>
+									</div>
+								@endif
+							@endforeach
 				        </div>
 				    </div>
 			    </div>

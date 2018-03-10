@@ -108,7 +108,6 @@
     </script>
 
     <!-- diemdanh-->
-    @include('diemdanh')
 
 </body>
 </html>
