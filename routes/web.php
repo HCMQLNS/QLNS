@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middlewarei'=>'web'],function(){
+	
 Route::get('/', function () {
     return view('welcome');
 });
@@ -101,8 +102,8 @@ Route::group(['prefix'=>'ca'],function(){
 
 Route::group(['prefix'=>'user'],function(){
 	Route::get('danhsach',[
-	'as'=>'ca',
-	'uses'=>'CaController@getCa'
+	'as'=>'user',
+	'uses'=>'UserController@getUser'
 	]);
 	Route::get('themuser/{id}',[
 		'as'=>'themuser',
@@ -112,18 +113,22 @@ Route::group(['prefix'=>'user'],function(){
 		'as'=>'themca',
 		'uses'=>'UserController@postThemUser'
 	]);
-	Route::get('suaca/{id}',[
-		'as'=>'suaca',
-		'uses'=>'CaController@getSuaCa'
+	Route::get('suauser/{id}',[
+		'as'=>'suauser',
+		'uses'=>'UserController@getSuaUser'
 	]);
-	Route::post('suaca/{id}',[
-		'as'=>'suaca',
-		'uses'=>'CaController@postSuaCa'
+	Route::post('suauser/{id}',[
+		'as'=>'suauser',
+		'uses'=>'UserController@postSuaUser'
 	]);
-	Route::get('xoaca/{id}',[
-		'as'=>'xoaca',
-		'uses'=>'CaController@getXoaCa'
+	Route::get('xoauser/{id}',[
+		'as'=>'xoauser',
+		'uses'=>'UserController@getXoaUser'
 	]);
+	Route::get('dangnhap',[
+	'as'=>'profile',
+	'uses'=>'PageController@getDangNhap'
+]);
 });
 
 Route::get('index',[
@@ -131,10 +136,7 @@ Route::get('index',[
 	'uses'=>'PageController@getIndex'
 ]);
 //auth
-Route::get('dangnhap',[
-	'as'=>'profile',
-	'uses'=>'PageController@getDangNhap'
-]);
+
 Route::post('dangnhap','AuthController@login')->name('login');
 // Điểm danh
 Route::get('diemdanh',[
@@ -150,3 +152,4 @@ Route::get('thongke',[
 	'as'=>'thongke',
 	'uses'=>'PageController@getThongKe'
 ]);
+});

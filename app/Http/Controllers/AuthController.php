@@ -12,17 +12,30 @@ class AuthController extends Controller
     //
     public function login(Request $request)
     {
-    	$email = $request['email'];
+        $this->validate($request,[
+            
+            'txtUsername'=>'required|max:50',
+            'password'=>'required|max:50',
+            
+        ],[
+            'txtUsername.required'=>'Bạn chưa nhập Username',
+            'txtUsername.max'=>'Username không quá 50 ký tự',
+            'password.required'=>'Bạn chưa nhập password',
+            'password.max'=>'Password không quá 50 ký tự',
+        ]);
+    	$username = $request['txtUsername'];
     	$password = $request['password'];
     	
     	 
-    	if (Auth::attempt(['email'=>$email,'password'=>$password])) 
+    	if (Auth::attempt(['name'=>$username,'password'=>$password])) 
     	{   
-            $nhanVien = nhanvien::all();
-            return view('page.nhanvien.nhanvien',compact('nhanVien'));
+            
+            
+
+            return redirect('nhanvien/danhsach')->with('thongbao','Đăng nhập thành công.');
         }
     	else 
-    		return view('page.dangnhap');	
-    			
+    		return redirect('user/dangnhap')->with('loi','Đăng nhập không thành công. Username hoặc password không đúng. ');	
+    	
     }
 }

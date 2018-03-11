@@ -16,7 +16,7 @@ class PageController extends Controller
     }
     
     public function getDangNhap(){
-        return view('page.dangnhap');
+        return view('page.user.dangnhap');
     }
     public function getDiemDanh(){ 
     	return view('page.diemdanh');

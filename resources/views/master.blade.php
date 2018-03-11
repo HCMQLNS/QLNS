@@ -32,6 +32,7 @@
 </head>
 <body>
 
+@if(Auth::check())
 
         <!-- Left Panel -->
     @include('aside')
@@ -106,6 +107,8 @@
             } );
         } )( jQuery );
     </script>
-
+@else
+    <h1>Bạn vui lòng đăng nhập</h1>
+@endif
 </body>
 </html>
