@@ -107,14 +107,14 @@
             } );
         } )( jQuery );
     </script>
-<<<<<<< HEAD
+
 @else
     <h1>Bạn vui lòng đăng nhập</h1>
 @endif
-=======
+
 
     <!-- diemdanh-->
 
->>>>>>> bbf1d79c1f53e2c1a86ee258f0fdf43153f66202
+
 </body>
 </html>
