@@ -64,6 +64,7 @@
     <script src="source/assets/js/main.js"></script>
     
     
+                
     
 
     <script src="source/assets/js/lib/data-table/datatables.min.js"></script>
@@ -77,11 +78,10 @@
     <script src="source/assets/js/lib/vector-map/jquery.vmap.min.js"></script>
     <script src="source/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
     <script src="source/assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
-	
-				<!--  Chart js -->
+				
+<!--  Chart js -->
     <script src="source/assets/js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="source/assets/js/lib/chart-js/chartjs-init.js"></script>			
-
+    <script src="source/assets/js/lib/chart-js/chartjs-init.js"></script>
     <script>
     //js tim kiem, so trang , table
     
@@ -107,8 +107,14 @@
             } );
         } )( jQuery );
     </script>
+<<<<<<< HEAD
 @else
     <h1>Bạn vui lòng đăng nhập</h1>
 @endif
+=======
+
+    <!-- diemdanh-->
+
+>>>>>>> bbf1d79c1f53e2c1a86ee258f0fdf43153f66202
 </body>
 </html>

@@ -1,19 +1,35 @@
-<!doctype html>
-<html class="no-js" lang=""> <!--<![endif]-->
-<head>
+
 <script src="source/assets/js/vendor/jquery-2.1.4.min.js"></script>
 <script>
 
 $(document).ready(function(){
 	$("#div1").hide();
 	$("#div2").hide();
-        $("input[value='A']").click(function(){
-            $("#div1").show();
+	$("#div3").hide();
+	$("#div4").hide();
+        $("input[value='1']").click(function(){
+			$("#div1").show();
 			$("#div2").hide();
+			$("#div3").hide();
+			$("#div4").hide();
         })
-        $("input[value='B']").click(function(){
+        $("input[value='2']").click(function(){
             $("#div1").hide();
 			$("#div2").show();
+			$("#div3").hide();
+			$("#div4").hide();
+        })
+		$("input[value='3']").click(function(){
+            $("#div1").hide();
+			$("#div2").hide();
+			$("#div3").show();
+			$("#div4").hide();
+        })
+		$("input[value='4']").click(function(){
+            $("#div1").hide();
+			$("#div2").hide();
+			$("#div3").hide();
+			$("#div4").show();
         })
     })
 </script>
@@ -54,8 +70,4 @@ button[type="submit"]:focus {
 }
 </style>
 
-</head>
-<body>
 
-</body>
-</html>
