@@ -50,14 +50,17 @@
 														@endif
 													@endforeach
 													</td>
-													<td></td>
+													<td>
+														<button type="submit" class="btn btn-primary btn-sm" style="margin-left:45%; margin-top:5%; width: 150px" name="radioDiemDanh">
+															<i class="fa fa-dot-circle-o"></i> Lưu
+														</button>
+
+													</td>
 												</tr>
 												@endforeach
 											</tbody>
 										</table>
-										<button type="submit" class="btn btn-primary btn-sm" style="margin-left:45%; margin-top:5%; width: 150px">
-											<i class="fa fa-dot-circle-o"></i> Lưu
-										</button>
+										
 									</form>
 									</div>
 								@endif

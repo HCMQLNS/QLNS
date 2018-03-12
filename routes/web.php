@@ -184,6 +184,10 @@ Route::group(['prefix'=>'chamcong'],function(){
 		'as'=>'diemdanh',
 		'uses'=>'ChamCongController@postDiemDanh'
 	]);
+	Route::post('NS_diemdanh',[
+		'as'=>'NS_diemdanh',
+		'uses'=>'ChamCongController@postNS_diemdanh'
+	]);
 	
 });
 //thống kê

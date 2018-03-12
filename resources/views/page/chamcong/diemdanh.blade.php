@@ -3,13 +3,13 @@
 <div class="container-fluid">
 	<h1>Điểm Danh</h1>
 	<div>
-	  <table width="460" border="0">
+	  <table width="560" border="0">
 	    <tr>	               
 	      <td width="40"><i><?php echo date("l"); ?>,</i></td>
 	      <td width="176"><i><?php echo date("d/m/yy"); ?></i></td>
           
-          <td width="126"><b>Mã Nhân Viên:</b></td>
-	      <td width="100">&nbsp;</td>
+          <td width="126"><b>Tên Nhân Viên:</b></td>
+	      <td width="200">{{$user->nhanvien->hoten}}</td>
         </tr>
       </table>
 	
