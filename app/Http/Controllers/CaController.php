@@ -70,8 +70,15 @@ class CaController extends Controller
     }
 
      public function getXoaCa($id){ 
-        $ca = ca::find($id);
-        $ca->delete();
-        return redirect('ca/danhsach')->with('thongbao','Xóa thành công');
+        if(Auth::user()->nhanvien->count(id)>0)
+        {
+            return redirect('loi');
+        }
+        else
+        {
+            $ca = ca::find($id);
+            $ca->delete();
+            return redirect('ca/danhsach')->with('thongbao','Xóa thành công');
+        } 
     }
 }
