@@ -24,15 +24,19 @@ class ChamCongController extends Controller
             'radioDiemDanh.required'=>'Vui lòng nhân để điểm danh',
             
         ]);
+        
         $diemdanh = new diemdanh;
         $diemdanh->idca = $request->radioDiemDanh;
         $diemdanh->idnv = "1";
-        $diemdanh->ngay = date("Y/m/d"); 
+        $diemdanh->ngay = date("Y/m/d");
+        $diemdanh->ghichu = ""; 
 
         $diemdanh->save(); 
         return redirect('chamcong/diemdanh')->with('thongbao','Điểm danh thành công');
 
     }
+
+    // Nhân viên nhân sự điểm danh
 	public function getNS_DiemDanh(){
         $phg = phong::all();
 		$ca  = ca::all(); 

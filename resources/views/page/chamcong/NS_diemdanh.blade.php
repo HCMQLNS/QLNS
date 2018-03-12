@@ -22,7 +22,7 @@
 				    <div class="col-md-12">
 				        <div class="card">
 				            <div class="card-header">
-				                <strong class="card-title">Data Table</strong>
+				                <strong class="card-title">Danh sách nhân viên</strong>
 				            </div>
 							
 							@foreach($ca as $c)

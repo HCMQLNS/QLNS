@@ -7,25 +7,25 @@ $(document).ready(function(){
 	$("#div2").hide();
 	$("#div3").hide();
 	$("#div4").hide();
-        $("input[value='1']").click(function(){
+        $("input[value='4']").click(function(){
 			$("#div1").show();
 			$("#div2").hide();
 			$("#div3").hide();
 			$("#div4").hide();
         })
-        $("input[value='2']").click(function(){
+        $("input[value='5']").click(function(){
             $("#div1").hide();
 			$("#div2").show();
 			$("#div3").hide();
 			$("#div4").hide();
         })
-		$("input[value='3']").click(function(){
+		$("input[value='6']").click(function(){
             $("#div1").hide();
 			$("#div2").hide();
 			$("#div3").show();
 			$("#div4").hide();
         })
-		$("input[value='4']").click(function(){
+		$("input[value='7']").click(function(){
             $("#div1").hide();
 			$("#div2").hide();
 			$("#div3").hide();

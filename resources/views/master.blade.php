@@ -79,9 +79,11 @@
     <script src="source/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
     <script src="source/assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
 				
-<!--  Chart js -->
+            <!--  Chart js -->
     <script src="source/assets/js/lib/chart-js/Chart.bundle.js"></script>
     <script src="source/assets/js/lib/chart-js/chartjs-init.js"></script>
+    <script src="source/assets/js/lib/chart-js/Chart_Dev.min.js"></script>
+            <!-- end chart js -->
     <script>
     //js tim kiem, so trang , table
     

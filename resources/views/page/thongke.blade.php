@@ -1,12 +1,31 @@
 @extends('master')
 @section('content')
-<div class="col-lg-6">
-	<div class="card">
-		<div class="card-body"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
-			<h4 class="mb-3">Bar chart </h4>
-			<canvas id="barChart" width="678" height="338" style="display: block; height: 271px; width: 543px;"></canvas>
-		</div>
-	</div>
-</div>
 
+	<canvas id="income" width="600" height="400"></canvas>
+
+sfc
+<script>
+// bar chart data
+    var barData = {
+    labels : ["January","February","March","April","May","June"],
+    datasets : [
+        {
+            fillColor : "#48A497",
+            strokeColor : "#48A4D1",
+            data : [456,479,324,569,702,600]
+        },
+        {
+            fillColor : "rgba(73,188,170,0.4)",
+            strokeColor : "rgba(72,174,209,0.4)",
+            data : [364,504,605,400,345,320]
+        }
+        ]
+    }
+ 
+    // get bar chart canvas
+    var income = document.getElementById("income").getContext("2d");
+ 
+    // draw bar chart
+    new Chart(income).Bar(barData);
+</script>
 @endsection
