@@ -111,7 +111,7 @@
     </script>
 
 @else
-    <h1>Bạn vui lòng đăng nhập</h1>
+    <a href="user/dangnhap"><h1>Bạn vui lòng đăng nhập</h1></a>
 @endif
 
 

@@ -2,7 +2,7 @@
 @section('content')
 <div class="breadcrumbs">
     <div class="col-sm-4">
-        <h3>Thêm Phòng</h3>
+        <h3>Thêm Chức Vụ</h3>
         <p>Vui lòng nhập đầy đủ thông tin</p>
     </div>
     <div class="col-sm-8">
@@ -32,9 +32,10 @@
 
 		  	
 		    
-		    <div class="form-group"><label for="company" class=" form-control-label">Tên Phòng</label>
-		    	<input type="text" id="txtTenPhong" name="txtTenPhong" placeholder="Nhập tên phòng" class="form-control">
+		    <div class="form-group"><label for="company" class=" form-control-label">Tên chức vụ</label>
+		    	<input type="text" id="txtTenCV" name="txtTenCV" value="{{$chucVu->tencv}}" placeholder="Nhập tên chức vụ" class="form-control">
 		    </div>
+		     
 		   
 		    
 	</div>

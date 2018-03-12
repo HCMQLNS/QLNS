@@ -57,10 +57,17 @@
 			              <select name="selectQuyen" id="selectQuyen" class="form-control">
 							@if($user->quyen == "1")							
 			                	<option selected value="1">Admin</option>
-			                	<option value="2">Nhân viên</option>
+			                	<option value="2">Nhân viên nhân sự</option>
+			                	<option value="3">Nhân viên</option>
+
 			                @elseif($user->quyen == "2")
 			                	<option value="1">Admin</option>
-			                	<option selected value="2">Nhân viên</option>
+			                	<option selected value="2">Nhân viên nhân sự</option>
+			                	<option value="3">Nhân viên</option>
+			                @elseif($user->quyen == "3")
+			                	<option value="1">Admin</option>
+			                	<option value="2">Nhân viên nhân sự</option>
+			                	<option selected value="3">Nhân viên</option>
 			              	@endif
 			              </select>
 			            </div>

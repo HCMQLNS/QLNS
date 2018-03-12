@@ -4,16 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     //
     public function getUser(){
-        $user = User::all();
-        return view('page.user.user',compact('user'));
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
+            $user = User::all();
+            return view('page.user.user',compact('user'));
+        }
+        else
+            return redirect('loi');
     }
     public function getThemUser($id){
-        $user = User::find($id);
-        return view('page.user.them',compact('user'));
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
+            $user = User::find($id);
+            return view('page.user.them',compact('user'));
+        }
+        else
+            return redirect('loi');
     }
     public function postThemUser(Request $request,$id){
        
@@ -41,10 +52,26 @@ class UserController extends Controller
 
     }
     public function getSuaUser($id){
- 
-        $user = User::find($id);
+
+        if(Auth::user()->quyen == 1)
+        {
+            $user = User::find($id);       
+            return view('page.user.sua', compact('user'));
+        }
+        elseif(Auth::user()->nhanvien->idphong=='5' && (Auth::user()->id == $id ) && Auth::user()->quyen == 2)
+            {
+                return redirect('loi'); 
+            }
+            elseif(Auth::user()->quyen == 2)
+            {
+                $user = User::find($id);
         
-        return view('page.user.sua', compact('user'));
+                return view('page.user.sua', compact('user'));
+            }
+            else
+                return redirect('loi');
+
+        
     }
     public function postSuaUser(Request $request,$id){
        
@@ -71,8 +98,25 @@ class UserController extends Controller
     }
 
      public function getXoaUser($id){ 
-        $user = User::find($id);
-        $user->delete();
-        return redirect('user/danhsach')->with('thongbao','Xóa thành công');
+        
+
+        if(Auth::user()->quyen == 1)
+        {
+            $user = User::find($id);
+            $user->delete();
+            return redirect('user/danhsach')->with('thongbao','Xóa thành công');
+        }
+        elseif(Auth::user()->nhanvien->idphong=='5' && (Auth::user()->id == $id ) && Auth::user()->quyen == 2)
+            {
+                return redirect('loi'); 
+            }
+            elseif(Auth::user()->quyen == 2)
+            {
+                $user = User::find($id);
+                $user->delete();
+                return redirect('user/danhsach')->with('thongbao','Xóa thành công');
+            }
+            else
+                return redirect('loi');
     }
 }

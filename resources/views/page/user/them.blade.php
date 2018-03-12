@@ -2,22 +2,11 @@
 @section('content')
 <div class="breadcrumbs">
     <div class="col-sm-4">
-        <div class="page-header float-left">
-            <div class="page-title">
-                <h1>Thêm User</h1>
-            </div>
-        </div>
+        <h3>Thêm User</h3>
+        <p>Vui lòng nhập đầy đủ thông tin</p>
     </div>
     <div class="col-sm-8">
-        <div class="page-header float-right">
-            <div class="page-title">
-                <ol class="breadcrumb text-right">
-                    <li class="active"><button type="button" class="btn btn-danger btn-xl">
-            <i class="fa fa-ban"></i> Trở về
-        </button></li>
-                </ol>
-            </div>
-        </div>
+        
     </div>
 </div>
 

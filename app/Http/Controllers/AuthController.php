@@ -32,10 +32,16 @@ class AuthController extends Controller
             
             
 
-            return redirect('nhanvien/danhsach')->with('thongbao','Đăng nhập thành công.');
+            return redirect('trangchu')->with('thongbao','Đăng nhập thành công.');
         }
     	else 
-    		return redirect('user/dangnhap')->with('loi','Đăng nhập không thành công. Username hoặc password không đúng. ');	
+    		return redirect('dangnhap')->with('loi','Đăng nhập không thành công. Username hoặc password không đúng. ');	
     	
     }
+     public function getDangXuat()
+     {
+        Auth::logout();
+        return redirect('dangnhap');
+     }
+    
 }

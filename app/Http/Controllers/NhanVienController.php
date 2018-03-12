@@ -7,24 +7,50 @@ use App\nhanvien;
 use App\chucvu;
 use App\phong;
 use App\ca;
+use Illuminate\Support\Facades\Auth;
 class NhanVienController extends Controller
 {
     //public $timestamps = false;
     
     public function getNhanVien(){
-        $nhanVien = nhanvien::all();
-
-    	return view('page.nhanvien.nhanvien',compact('nhanVien'));
+        if(Auth::user()->quyen == '1'||Auth::user()->quyen=='2')
+        {
+            $nhanVien = nhanvien::all();
+    	    return view('page.nhanvien.nhanvien',compact('nhanVien'));
+        }
+        else
+        {
+            return redirect('loi');
+        }
     }
     public function getProfile($id){ 
-    	$nhanVien = nhanvien::find($id);
-    	return view('page.nhanvien.profile',compact('nhanVien'));
+        if(Auth::user()->quyen == '3' && Auth::user()->idnv == $id)
+        {
+            $nhanVien = nhanvien::find($id);
+            return view('page.user.profile',compact('nhanVien'));
+        }
+        elseif(Auth::user()->quyen == '1' || Auth::user()->quyen == '2')
+        {
+            $nhanVien = nhanvien::find($id);
+            return view('page.nhanvien.profile',compact('nhanVien'));
+        }
+        else
+            return redirect('loi');
+    	
     }
+   
     public function getThemNhanVien(){
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
         $chucVu = chucvu::all();
         $nhanvien = nhanvien::all();
         $phong = phong::all();
         return view('page.nhanvien.them',compact('chucVu','phong'));
+        }
+        else
+        {
+            return redirect('loi');
+        }
     }
     public function postThemNhanVien(Request $request){
        
@@ -148,14 +174,32 @@ class NhanVienController extends Controller
         $nhanvien->idphong = $request->selectPhong;
         $nhanvien->save(); 
         return redirect('nhanvien/danhsach')->with('thongbao','Thêm thành công');
-
+    
     }
     public function getSuaNhanVien($id){
-        $chucVu = chucvu::all();
-        $nhanvien = nhanvien::find($id);
-        $phong = phong::all();
+        if(Auth::user()->quyen == 1)
+        {
+                $chucVu = chucvu::all();
+                $nhanvien = nhanvien::find($id);
+                $phong = phong::all();            
+                return view('page.nhanvien.sua', compact('chucVu','phong','nhanvien'));
+        }
+        elseif(Auth::user()->nhanvien->phong->id=='5' && (Auth::user()->nhanvien->id == $id ) && Auth::user()->quyen == 2)
+            {
+                return redirect('loi'); 
+            }
+            elseif(Auth::user()->quyen == 2)
+            {
+                $chucVu = chucvu::all();
+                $nhanvien = nhanvien::find($id);
+                $phong = phong::all();            
+                return view('page.nhanvien.sua', compact('chucVu','phong','nhanvien'));
+            }
+            else
+                return redirect('loi'); 
+
         
-        return view('page.nhanvien.sua', compact('chucVu','phong','nhanvien'));
+        
     }
     public function postSuaNhanVien(Request $request,$id){
        
@@ -258,7 +302,7 @@ class NhanVienController extends Controller
         }
         else
         {
-            $nhanvien->hinh = "";
+            $nhanvien->hinh = $nhanvien->hinh;
         }
 
         $nhanvien->noicapcmnd = $request->txtNoiCapCMND;
@@ -283,8 +327,22 @@ class NhanVienController extends Controller
     }
 
      public function getXoaNhanVien($id){ 
-        $nhanVien = nhanvien::find($id);
-        $nhanVien->delete();
-        return redirect('nhanvien/danhsach')->with('thongbao','Xóa thành công');
+        if(Auth::user()->quyen == 1)
+        {
+            $nhanVien = nhanvien::find($id);
+            $nhanVien->delete();
+            return redirect('nhanvien/danhsach')->with('thongbao','Xóa thành công');
+        }
+        elseif(Auth::user()->nhanvien->phong->id=='5' && (Auth::user()->nhanvien->id == $id ) && Auth::user()->quyen == 2)
+            {
+                return redirect('loi'); 
+            }
+            else
+            {
+                $nhanVien = nhanvien::find($id);
+                $nhanVien->delete();
+                return redirect('nhanvien/danhsach')->with('thongbao','Xóa thành công');
+            }
+        
     }
 }
