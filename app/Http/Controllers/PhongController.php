@@ -4,19 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\phong;
+use Illuminate\Support\Facades\Auth;
 class PhongController extends Controller
 {
     //
     public function getPhong()
     {
-    	$phong = phong::all();
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
+        	$phong = phong::all();
 
-    	return view('page.phong.phong',compact('phong'));	
+        	return view('page.phong.phong',compact('phong'));	
+        }
+        else
+            return redirect('loi');
     }
      
     public function getThemPhong(){
-        $phong = phong::all();
-        return view('page.phong.them',compact('phong'));
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
+            $phong = phong::all();
+            return view('page.phong.them',compact('phong'));
+         }
+        else
+            return redirect('loi');
     }
     public function postThemPhong(Request $request){
        
@@ -34,10 +45,14 @@ class PhongController extends Controller
 
     }
     public function getSuaPhong($id){
- 
-        $phong = phong::find($id);
-        
-        return view('page.phong.sua', compact('phong'));
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
+            $phong = phong::find($id);
+            return view('page.phong.sua', compact('phong'));
+        }
+        else
+            return redirect('loi');
+
     }
     public function postSuaPhong(Request $request,$id){
        
@@ -54,9 +69,14 @@ class PhongController extends Controller
         return redirect('phong/danhsach')->with('thongbao','Sửa thành công');
     }
 
-     public function getXoaPhong($id){ 
-        $phong = phong::find($id);
-        $phong->delete();
-        return redirect('phong/danhsach')->with('thongbao','Xóa thành công');
+     public function getXoaPhong($id){
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        { 
+            $phong = phong::find($id);
+            $phong->delete();
+            return redirect('phong/danhsach')->with('thongbao','Xóa thành công');
+        }
+        else
+            return redirect('loi');
     }
 }

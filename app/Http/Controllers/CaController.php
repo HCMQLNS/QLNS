@@ -4,19 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ca;
+use Illuminate\Support\Facades\Auth;
 class CaController extends Controller
 {
     //
     public function getCa()
     {
-    	$ca = ca::all();
-
-    	return view('page.ca.ca',compact('ca'));	
-    }
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
+    	   $ca = ca::all();
+    	   return view('page.ca.ca',compact('ca'));	
+        }
+        else
+            return redirect('loi');
+    }   
      
     public function getThemCa(){
-        $ca = ca::all();
-        return view('page.ca.them',compact('ca'));
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
+            $ca = ca::all();
+            return view('page.ca.them',compact('ca'));
+        }
+        else        
+            return redirect('loi');
+        
     }
     public function postThemCa(Request $request){
        
@@ -43,10 +54,15 @@ class CaController extends Controller
 
     }
     public function getSuaCa($id){
- 
-        $ca = ca::find($id);
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
+            $ca = ca::find($id);
         
-        return view('page.ca.sua', compact('ca'));
+            return view('page.ca.sua', compact('ca'));
+        }
+        else
+            return redirect('loi');
+        
     }
     public function postSuaCa(Request $request,$id){
        
@@ -70,8 +86,14 @@ class CaController extends Controller
     }
 
      public function getXoaCa($id){ 
-        $ca = ca::find($id);
-        $ca->delete();
-        return redirect('ca/danhsach')->with('thongbao','Xóa thành công');
+        if(Auth::user()->quyen == '1' || Auth::user()->quyen == '2' )
+        {
+            $ca = ca::find($id);
+            $ca->delete();
+            return redirect('ca/danhsach')->with('thongbao','Xóa thành công');
+        }
+        else
+            return redirect('loi');
+        
     }
 }

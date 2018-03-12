@@ -19,38 +19,27 @@
                         </div>
                       @endif
                         <div class="card-header">
-                            <strong class="card-title">DANH SÁCH CA</strong>
+                            <strong class="card-title">DANH SÁCH CHỨC VỤ</strong>
                         </div>
                         <div class="card-body">
                   <table id="mydata" class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Quyền</th>
-                        <th>Tên nhân viên</th>
+                        <th>Mã chức vụ</th>
+                        <th>Tên chức vụ</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach($user as $u)
+                      @foreach($chucVu as $c)
                       <tr>
-                        <td>{{$u->name}}</td>
-                        <td>{{$u->password}}</td>
-                        <td>
-                        	@if($u->quyen == '1')
-                        		{{"Admin"}}
-                          @elseif($u->quyen == '2')
-                            {{"Nhân viên nhân sự"}}
-                        	@else 
-                        		{{"Nhân viên"}}
-                        	@endif
-                        </td>
-                        <td>{{$u->nhanvien->hoten}}</td>
+                        <td>{{$c->id}}</td>
+                        <td>{{$c->tencv}}</td>
                         
-                        <td><a href="user/suauser/{{$u->id}}"><i class="fa fa-edit"></i>  Sửa</a></td>
-                        <td><a href="user/xoauser/{{$u->id}}"><i class="fa fa-times-circle"></i>  Xóa</a></td>
+                        
+                        <td><a href="chucvu/suachucvu/{{$c->id}}"><i class="fa fa-edit"></i>  Sửa</a></td>
+                        <td><a href="chucvu/xoachucvu/{{$c->id}}"><i class="fa fa-times-circle"></i>  Xóa</a></td>
                       </tr>
                       @endforeach
                     </tbody>

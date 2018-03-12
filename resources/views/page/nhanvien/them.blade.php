@@ -3,9 +3,9 @@
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
-            <div class="page-title">
-                <h1>Thêm Nhân Viên</h1>
-            </div>
+            
+           <h3>Thêm Nhân Viên</h3>
+           <p>Vui lòng nhập đầy đủ thông tin</p>
         </div>
     </div>
     <div class="col-sm-8">

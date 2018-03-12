@@ -20,6 +20,14 @@ class AppServiceProvider extends ServiceProvider
             $user=Auth::user();
             $view->with('user_login',$user);
         });
+         view()->composer('trangchu',function($view){
+            $user=Auth::user();
+            $view->with('user_login',$user);
+        });
+         view()->composer('aside',function($view){
+            $user=Auth::user();
+            $view->with('user_login',$user);
+        });
        
     }
 
